@@ -15,7 +15,7 @@ Esse projeto foi criado com o objetivo de demonstrar meus conhecimentos em cria�
 -Product.UnitTest
   ● E por fim a parte de teste da nossa aplicação, que se encontra alguns testes unitários importantes para verificar as funcionalidades da nossa aplicação.  
 
-## Sobre as tecnoplogias utilizadas About technologies used
+## Sobre as tecnoplogias utilizadas
 
 - C# 10
 - .NET 6
@@ -26,7 +26,7 @@ Esse projeto foi criado com o objetivo de demonstrar meus conhecimentos em cria�
 - Swagger
 
 
-## Authors
+## Autor
 
 - [@github-abnermatheus](https://github.com/EzequielMattos)
 - [@linkedin-abnermatheus](https://www.linkedin.com/in/ezequielmattos/) 
