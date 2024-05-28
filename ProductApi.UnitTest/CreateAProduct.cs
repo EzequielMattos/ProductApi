@@ -10,7 +10,7 @@ namespace ProductApi.UnitTest
         [Fact]
         public async Task DadoUmProdutoRetornaCriado()
         {   //Arange
-            var product = new Product{Id= "1", Nome="Produto Quente 1", Preco=10.0, Quantidade=5, Estoque="24E10"};
+            var product = new Product { Id = "1", Nome = "Produto Quente 1", Preco = 10.0, Quantidade = 5, Estoque = "24E10" };
 
             var repository = new Mock<IProductRepository>();
             repository.Setup(x => x.CreateAsync(product)).ReturnsAsync(product);
@@ -28,13 +28,12 @@ namespace ProductApi.UnitTest
         }
 
         [Fact]
-        public async Task DadoUmProdutoInvalidoRetornaNotFound()
+        public async Task DadoUmProdutoInvalidoRetornaVazio()
         {
             // Arrange
-            var product = new Product{Id = "1", Nome = "Produto Quente 1", Preco = 10.0, Quantidade = 5, Estoque = "24E10"};
+            Product? product = new Product { Id = "1", Nome = "Produto Quente 1", Preco = -1, Quantidade = 5, Estoque = "24E10" };
 
             var repository = new Mock<IProductRepository>();
-            repository.Setup(x => x.CreateAsync(It.IsAny<Product>())).ReturnsAsync((Product)null);
 
             var service = new ProductService(repository.Object);
 
@@ -44,7 +43,7 @@ namespace ProductApi.UnitTest
             // Assert
             Assert.Null(result);
 
-            repository.Verify(x => x.CreateAsync(product), Times.Once);
+            repository.Verify(x => x.CreateAsync(product), Times.Never);
         }
     }
 }

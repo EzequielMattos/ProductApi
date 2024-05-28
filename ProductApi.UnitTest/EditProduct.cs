@@ -10,9 +10,10 @@ namespace ProductApi.UnitTest
         [Fact]
         public async Task DadoUmProdutoRetornaAlterado()
         {   //Arange
-            var product = new Product{Id= "1", Nome="Produto Quente 1", Preco=10.0, Quantidade=5, Estoque="24E10"};
+            var product = new Product { Id = "1", Nome = "Produto Quente 1", Preco = 10.0, Quantidade = 5, Estoque = "24E10" };
 
             var repository = new Mock<IProductRepository>();
+            repository.Setup(x => x.GetByIdAsync(product.Id)).ReturnsAsync(product);
             repository.Setup(x => x.UpdateAsync(product)).ReturnsAsync(product);
 
             var service = new ProductService(repository.Object);
@@ -26,6 +27,7 @@ namespace ProductApi.UnitTest
 
             Assert.Equal("Produto alterado", result.Nome);
 
+            repository.Verify(x => x.GetByIdAsync(product.Id), Times.Once);
             repository.Verify(x => x.UpdateAsync(product), Times.Once);
         }
 
@@ -33,10 +35,9 @@ namespace ProductApi.UnitTest
         public async Task DadoUmProdutoNaoExistenteRetornaNotFound()
         {
             // Arrange
-            var product = new Product{Id = "1", Nome = "Produto Quente 1", Preco = 10.0, Quantidade = 5, Estoque = "24E10"};
+            Product? product = new Product { Id = "1", Nome = "Produto Quente 1", Preco = 10.0, Quantidade = 5, Estoque = "24E10" };
 
             var repository = new Mock<IProductRepository>();
-            repository.Setup(x => x.UpdateAsync(It.IsAny<Product>())).ReturnsAsync((Product)null);
 
             var service = new ProductService(repository.Object);
 
@@ -46,7 +47,7 @@ namespace ProductApi.UnitTest
             // Assert
             Assert.Null(result);
 
-            repository.Verify(x => x.UpdateAsync(product), Times.Once);
+            repository.Verify(x => x.UpdateAsync(product), Times.Never);
         }
     }
 }
