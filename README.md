@@ -1,8 +1,19 @@
-# API Template - Microservice
+# API Produtos
 
-This project, was developed with purpose of help o development fast of API's using CQRS, Clean Architecture, SOLID. Also serving as guideline to good habits.
+Esse projeto foi criado com o objetivo de demonstrar meus conhecimentos em criação de aplicações API utilizando padrões de projetos e boas práticas.
 
-This API exists um example of Create e Get of one Car Entity, only how example, because when will use to other context, must delete. Also, one example of security API with token JWT.
+## Componentes da solução
+
+- Product.Api
+  ●	No projeto .Api está armazenado a controller, que é responsavel por executar apenas as funcionalidades da nossa API de produtos, aonde faz a chamada dos services para execução dos endpoints. Além de conter também a configuração da nossa solution.
+- Product.Application
+  ● O projeto .Application tem como sua principal funcionalidade guardar o services que são chamados pelo nosso projeto .Api, e nele estão as nossas regras de negócio.
+- Product.Domain 
+  ● Já o projeto .Domain conta com a nossa entidade de produto e também as interfaces com os contratos.
+- Product.Infrastructure
+  ● Esse projeto conta com a parte de conexão com o banco de dados da nossa aplicação, desde o contexto até as partes que executam os scripts dentro do nosso banco de dados.
+-Product.UnitTest
+  ● E por fim a parte de teste da nossa aplicação, que se encontra alguns testes unitários importantes para verificar as funcionalidades da nossa aplicação.  
 
 ## Sobre as tecnoplogias utilizadas About technologies used
 
@@ -13,24 +24,6 @@ This API exists um example of Create e Get of one Car Entity, only how example, 
 - Clean Architecture
 - Database in Memory
 - Swagger
-- Bulk - Insert, Delete and Update
-
-## Roadmap
-
-  - [ ]  Unit Test how example. Using XUnit and Moq to test handlers.
-  - [ ]  Apply StyleCop  
-  - [ ]  Add ProblemsDetails
-  - [ ]  SignalR
-  - [ ]  Send Email by Azure
-
-# Reference
-
-These are some link that me helped the development of this project. Maybe help you :)
-
-https://learn.microsoft.com/en-us/dotnet/core/tools/custom-templates
-https://www.luisdev.com.br/2020/09/29/clean-architecture-com-asp-net-core-parte-1/
-https://www.macoratti.net/21/01/aspnc_cleanarch3.htm
-
 
 
 ## Authors
