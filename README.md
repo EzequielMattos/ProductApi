@@ -28,6 +28,6 @@ Esse projeto foi criado com o objetivo de demonstrar meus conhecimentos em cria√
 
 ## Autor
 
-- [@github-abnermatheus](https://github.com/EzequielMattos)
-- [@linkedin-abnermatheus](https://www.linkedin.com/in/ezequielmattos/) 
+- [@github-ezequielMattos](https://github.com/EzequielMattos)
+- [@linkedin-ezequielMattos](https://www.linkedin.com/in/ezequielmattos/) 
 
